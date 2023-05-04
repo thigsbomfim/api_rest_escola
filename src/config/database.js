@@ -1,12 +1,8 @@
 require('dotenv').config();
 
 module.exports = {
-  dialect: 'mysql',
-  host: process.env.DATABASE_HOST,
-  port: process.env.DATABASE_PORT,
-  username: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE,
+  dialect: 'postgres',
+  url: process.env.DATABASE_URL,
   define: {
     timestamps: true,
     underscored: true,
@@ -15,5 +11,9 @@ module.exports = {
     'updatedAt': 'updated_at',
   },
   dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // para lidar com certificados autoassinados ou inválidos
+    },
   },
 };
