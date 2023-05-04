@@ -30,5 +30,10 @@
     "mysql2": "^3.2.4",
     "sequelize": "^6.31.0"
   },
-  "type": "module"
+  "import": {
+    "extensions": [".js", ".jsx", ".ts", ".tsx"]
+  },
+  "engines": {
+    "node": ">=14"
+  }
 }
