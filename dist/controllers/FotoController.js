@@ -14,12 +14,13 @@ class FotoController {
     return upload(req, res, async (error) => {
       if (error) {
         return res.status(400).json({
-          errors: [error.code],
+          errors: [error],
         });
       }
 
       try {
         const { originalname, filename } = req.file;
+        console.log(req.file);
         const { aluno_id } = req.body;
         const foto = await _Foto2.default.create({ originalname, filename, aluno_id });
 
