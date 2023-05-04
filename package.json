@@ -6,9 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
-    "build": "sucrase ./src -d ./dist --transforms imports && xcopy package.json dist\\ /I /Y",
-    "start": "node dist/server.js",
-    "vercel-build": "npm install pg"
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -29,18 +28,6 @@
     "mariadb": "^3.1.1",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.2.4",
-    "pg": "^8.10.0",
     "sequelize": "^6.31.0"
-  },
-  "import": {
-    "extensions": [
-      ".js",
-      ".jsx",
-      ".ts",
-      ".tsx"
-    ]
-  },
-  "engines": {
-    "node": ">=14"
   }
 }
