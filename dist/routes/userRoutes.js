@@ -9,7 +9,7 @@ const router = new (0, _express.Router)();
 router.get('/', _loginRequired2.default, _UserController2.default.index); // Lista alunos
 // router.get('/:id', userController.show); // Lista usuario
 
-router.post('/', _loginRequired2.default, _UserController2.default.store);
+router.post('/', _UserController2.default.store);
 
 router.put('/', _loginRequired2.default, _UserController2.default.update);
 router.delete('/:id', _loginRequired2.default, _UserController2.default.delete);
