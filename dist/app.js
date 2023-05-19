@@ -42,7 +42,7 @@ class App {
     this.app.use(_helmet2.default.call(void 0, ));
     this.app.use(_cors2.default.call(void 0, ));
     this.app.use(_express2.default.urlencoded({ extended: true }));
-    this.app.use(_express2.default.static(_path2.default.resolve(__dirname, '..', 'uploads')));
+    this.app.use(_express2.default.static(_path2.default.resolve(__dirname, '..', 'dist', 'uploads')));
     console.log('arquivo app.js', _path2.default.resolve(__dirname, '..', 'uploads'));
     this.app.use(_express2.default.json());
   }
