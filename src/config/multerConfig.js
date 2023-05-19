@@ -3,8 +3,6 @@ import { extname, resolve } from 'path';
 
 const aleatorio = () => Math.floor(Math.random() * 10000 + 10000);
 
-console.log(__dirname);
-console.log(resolve(__dirname));
 // salva imagem dentro do servidor
 export default {
   fileFilter: (req, file, cb) => {

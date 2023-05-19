@@ -1,4 +1,4 @@
-"use strict";const path = require('path');
+const path = require('path');
 
 console.log(path.resolve(__dirname));
 console.log(__dirname);

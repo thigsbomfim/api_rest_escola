@@ -3,8 +3,6 @@ var _path = require('path');
 
 const aleatorio = () => Math.floor(Math.random() * 10000 + 10000);
 
-console.log(__dirname);
-console.log(_path.resolve.call(void 0, __dirname));
 // salva imagem dentro do servidor
 exports. default = {
   fileFilter: (req, file, cb) => {
