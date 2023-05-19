@@ -3,6 +3,8 @@ import { extname, resolve } from 'path';
 
 const aleatorio = () => Math.floor(Math.random() * 10000 + 10000);
 
+console.log(__dirname);
+console.log(resolve(__dirname));
 // salva imagem dentro do servidor
 export default {
   fileFilter: (req, file, cb) => {
@@ -14,10 +16,11 @@ export default {
   },
   storage: multer.diskStorage({
     // caminho onde irá ser salvo os arquivos
+
     destination: (req, file, cb) => {
       // primeiro argumento é o erro
       // segundo argumento é o caminho onde eu vou jogar os arquivos
-      cb(null, resolve(__dirname, '..', '..', '..', '..', '..', '..', '..', '..', 'uploads', 'images'));
+      cb(null, resolve(__dirname, '..', 'uploads', 'images'));
     },
     // da um nome ao arquivo que será salvo
     filename: (req, file, cb) => {
