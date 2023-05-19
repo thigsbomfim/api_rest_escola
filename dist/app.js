@@ -15,21 +15,20 @@ var _tokenRoutes = require('./routes/tokenRoutes'); var _tokenRoutes2 = _interop
 var _alunoRoutes = require('./routes/alunoRoutes'); var _alunoRoutes2 = _interopRequireDefault(_alunoRoutes);
 var _fotoRoutes = require('./routes/fotoRoutes'); var _fotoRoutes2 = _interopRequireDefault(_fotoRoutes);
 
-// const whiteList = [
-//   'https://react2.thiagobomfim.com.br',
-//   `http://localhost:${process.env.HTTP_PORT}`,
-// ];
+const whiteList = [
+  process.env.DOMINIO_FRONT,
+];
 
-// const corsOptions = {
-//   origin(origin, callback) {
-//     if (whiteList.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
+const corsOptions = {
+  origin(origin, callback) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
 
-// };
+};
 
 class App {
   constructor() {
@@ -40,10 +39,9 @@ class App {
 
   middlewares() {
     this.app.use(_helmet2.default.call(void 0, ));
-    this.app.use(_cors2.default.call(void 0, ));
+    this.app.use(_cors2.default.call(void 0, corsOptions));
     this.app.use(_express2.default.urlencoded({ extended: true }));
     this.app.use(_express2.default.static(_path2.default.resolve(__dirname, '..', 'dist', 'uploads')));
-    console.log('arquivo app.js', _path2.default.resolve(__dirname, '..', 'uploads'));
     this.app.use(_express2.default.json());
   }
 

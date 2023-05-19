@@ -15,21 +15,20 @@ import tokenRoutes from './routes/tokenRoutes';
 import alunoRoutes from './routes/alunoRoutes';
 import fotoRoutes from './routes/fotoRoutes';
 
-// const whiteList = [
-//   'https://react2.thiagobomfim.com.br',
-//   `http://localhost:${process.env.HTTP_PORT}`,
-// ];
+const whiteList = [
+  process.env.DOMINIO_FRONT,
+];
 
-// const corsOptions = {
-//   origin(origin, callback) {
-//     if (whiteList.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
+const corsOptions = {
+  origin(origin, callback) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
 
-// };
+};
 
 class App {
   constructor() {
@@ -40,10 +39,9 @@ class App {
 
   middlewares() {
     this.app.use(helmet());
-    this.app.use(cors());
+    this.app.use(cors(corsOptions));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.static(path.resolve(__dirname, '..', 'dist', 'uploads')));
-    console.log('arquivo app.js', path.resolve(__dirname, '..', 'uploads'));
     this.app.use(express.json());
   }
 
