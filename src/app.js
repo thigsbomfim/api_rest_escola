@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
-import { resolve } from 'path';
-import { exibeCaminho } from './uploads/images/file';
+import path from 'path';
 
 dotenv.config();
 
@@ -31,9 +30,7 @@ import fotoRoutes from './routes/fotoRoutes';
 //   },
 
 // };
-console.log('app.js', __dirname);
 
-exibeCaminho();
 class App {
   constructor() {
     this.app = express();
@@ -45,7 +42,8 @@ class App {
     this.app.use(helmet());
     this.app.use(cors());
     this.app.use(express.urlencoded({ extended: true }));
-    this.app.use(express.static(resolve(__dirname, 'uploads', 'images')));
+    this.app.use(express.static(path.resolve(__dirname, '..', 'uploads')));
+    console.log('arquivo app.js', path.resolve(__dirname, '..', 'uploads'));
     this.app.use(express.json());
   }
 
