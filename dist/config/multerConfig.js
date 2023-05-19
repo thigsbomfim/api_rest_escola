@@ -2,6 +2,7 @@
 var _path = require('path');
 
 const aleatorio = () => Math.floor(Math.random() * 10000 + 10000);
+const destinationPath = '/opt/render/project/dist/uploads/images';
 
 // salva imagem dentro do servidor
 exports. default = {
@@ -17,7 +18,7 @@ exports. default = {
     destination: (req, file, cb) => {
       // primeiro argumento é o erro
       // segundo argumento é o caminho onde eu vou jogar os arquivos
-      cb(null, _path.resolve.call(void 0, __dirname, '..', '..', 'dist', 'uploads', 'images'));
+      cb(null, _path.resolve.call(void 0, __dirname, destinationPath));
     },
     // da um nome ao arquivo que será salvo
     filename: (req, file, cb) => {
