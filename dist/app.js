@@ -19,6 +19,10 @@ const whiteList = [
   process.env.DOMINIO_FRONT,
 ];
 
+const helmetOptions = {
+  crossOriginResourcePolicy: false,
+};
+
 const corsOptions = {
   origin(origin, callback) {
     if (whiteList.indexOf(origin) !== -1 || !origin) {
@@ -38,7 +42,7 @@ class App {
   }
 
   middlewares() {
-    this.app.use(_helmet2.default.call(void 0, ));
+    this.app.use(_helmet2.default.call(void 0, helmetOptions));
     this.app.use(_cors2.default.call(void 0, corsOptions));
     this.app.use(_express2.default.urlencoded({ extended: true }));
     this.app.use(_express2.default.static(_path2.default.resolve(__dirname, '..', 'dist', 'uploads')));

@@ -19,6 +19,10 @@ const whiteList = [
   process.env.DOMINIO_FRONT,
 ];
 
+const helmetOptions = {
+  crossOriginResourcePolicy: false,
+};
+
 const corsOptions = {
   origin(origin, callback) {
     if (whiteList.indexOf(origin) !== -1 || !origin) {
@@ -38,7 +42,7 @@ class App {
   }
 
   middlewares() {
-    this.app.use(helmet());
+    this.app.use(helmet(helmetOptions));
     this.app.use(cors(corsOptions));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.static(path.resolve(__dirname, '..', 'dist', 'uploads')));
