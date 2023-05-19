@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import { resolve } from 'path';
+import { exibeCaminho } from './uploads/images/file';
 
 dotenv.config();
 
@@ -28,8 +29,11 @@ import fotoRoutes from './routes/fotoRoutes';
 //       callback(new Error('Not allowed by CORS'));
 //     }
 //   },
-// };
 
+// };
+console.log('app.js', __dirname);
+
+exibeCaminho();
 class App {
   constructor() {
     this.app = express();
@@ -41,8 +45,8 @@ class App {
     this.app.use(helmet());
     this.app.use(cors());
     this.app.use(express.urlencoded({ extended: true }));
-    this.app.use(express.json());
     this.app.use(express.static(resolve(__dirname, 'uploads', 'images')));
+    this.app.use(express.json());
   }
 
   routes() {

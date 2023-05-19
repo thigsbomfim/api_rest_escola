@@ -1,4 +1,5 @@
 const path = require('path');
 
-console.log(path.resolve(__dirname));
-console.log(__dirname);
+export const exibeCaminho = () => {
+  return console.log('caminho uploads images', __dirname);
+};
