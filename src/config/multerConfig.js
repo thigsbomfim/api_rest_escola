@@ -17,7 +17,7 @@ export default {
     destination: (req, file, cb) => {
       // primeiro argumento é o erro
       // segundo argumento é o caminho onde eu vou jogar os arquivos
-      cb(null, resolve(__dirname, 'dist', 'uploads', 'images'));
+      cb(null, resolve(__dirname, '..', '..', '..', '..', '..', '..', '..', '..', 'uploads', 'images'));
     },
     // da um nome ao arquivo que será salvo
     filename: (req, file, cb) => {
