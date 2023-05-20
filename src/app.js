@@ -15,7 +15,7 @@ import tokenRoutes from './routes/tokenRoutes';
 import alunoRoutes from './routes/alunoRoutes';
 import fotoRoutes from './routes/fotoRoutes';
 
-const whiteList = process.env.DOMINIO_FRONT;
+const whiteList = [process.env.DOMINIO_FRONT];
 const helmetOptions = {
   crossOriginResourcePolicy: false,
 };
