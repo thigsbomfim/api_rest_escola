@@ -15,7 +15,7 @@ var _tokenRoutes = require('./routes/tokenRoutes'); var _tokenRoutes2 = _interop
 var _alunoRoutes = require('./routes/alunoRoutes'); var _alunoRoutes2 = _interopRequireDefault(_alunoRoutes);
 var _fotoRoutes = require('./routes/fotoRoutes'); var _fotoRoutes2 = _interopRequireDefault(_fotoRoutes);
 
-const whiteList = [process.env.DOMINIO_FRONT];
+const whiteList = process.env.DOMINIO_FRONT;
 const helmetOptions = {
   crossOriginResourcePolicy: false,
 };
